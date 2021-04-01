@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Example</title>
+      <title>Tic-Tac-Toe!</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags-->
@@ -12,6 +12,31 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1>Browser Template</h1>
+      <h1>Tic-Tac-Toe!</h1>
+      <p id="message"></p>
+      <form id="sign-up">
+        <h2>Sign-Up!</h2>
+        <input name="credentials[email]" type="email" placeholder="Enter email" required>
+        <input name="credentials[password]" type="password" placeholder="Enter password" required>
+        <input name="credentials[password_confirmation]" type="password" placeholder="Confirm password" required>
+        <input type="submit" value="Sign Up!">
+      </form>
+
+      <form id="sign-in">
+        <h2>Sign-In!</h2>
+        <input name="credentials[email]" type="email" placeholder="Enter email" required>
+        <input name="credentials[password]" type="password" placeholder="Enter password" required>
+      </form>
+
+      <form id="change-password">
+        <h2>Change Password!</h2>
+        <input name="passwords[old]" type="password" placeholder="Enter old password" required>
+        <input name="passwords[new]" type="password" placeholder="Enter new password" required>
+      </form>
+
+      <section id='demo-container'>
+        <button id='demo-button'>Demo Button</button>
+      </section>
+
     </body>
 </html>
