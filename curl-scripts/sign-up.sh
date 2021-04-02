@@ -1,4 +1,3 @@
-# VARIABLE=VALUE sh curl-scripts/sign-up.sh
 #!/bin/bash
 
 curl "https://tic-tac-toe-api-development.herokuapp.com/sign-up" \

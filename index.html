@@ -15,23 +15,26 @@
       <h1>Tic-Tac-Toe!</h1>
       <p id="message"></p>
       <form id="sign-up">
-        <h2>Sign-Up!</h2>
-        <input name="credentials[email]" type="email" placeholder="Enter email" required>
+        <input name="credentials[email]" type="email" placeholder="Email address" required>
         <input name="credentials[password]" type="password" placeholder="Enter password" required>
         <input name="credentials[password_confirmation]" type="password" placeholder="Confirm password" required>
-        <input type="submit" value="Sign Up!">
+        <button type="submit">Sign Up!</button>
       </form>
 
       <form id="sign-in">
-        <h2>Sign-In!</h2>
         <input name="credentials[email]" type="email" placeholder="Enter email" required>
         <input name="credentials[password]" type="password" placeholder="Enter password" required>
+        <button type="submit">Sign In!</button>
       </form>
 
       <form id="change-password">
-        <h2>Change Password!</h2>
         <input name="passwords[old]" type="password" placeholder="Enter old password" required>
         <input name="passwords[new]" type="password" placeholder="Enter new password" required>
+        <button type="submit">Change Password!</button>
+      </form>
+
+      <form id="sign-out">
+        <button type="submit">Sign Out</button>
       </form>
 
       <section id='demo-container'>
