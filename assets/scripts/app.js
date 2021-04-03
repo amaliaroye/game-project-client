@@ -7,14 +7,18 @@ and sends to assets/scripts/games/events.js
 */
 
 const authEvents = require('./auth/events')
-console.log('authEvents', authEvents)
+const gameEvents = require('./games/events')
+
 
 $(() => {
-  $('#demo-container').on('click', event => console.log('A button was clicked!', event.target))
-  // $('#change-password').hide()
-  // $('#sign-out').hide()
+  // $('#demo-container').on('click', event => console.log('A button was clicked!', event.target))
+  $('#change-password').hide()
+  $('#sign-out').hide()
   $('#sign-up').on('submit', authEvents.onSignUp)
   $('#sign-in').on('submit', authEvents.onSignIn)
   $('#change-password').on('submit', authEvents.onChangePassword)
   $('#sign-out').on('click', authEvents.onSignOut)
+  $('.grid').on('click', gameEvents.onSelectGrid)
+  $('#resetBoard').on('click', gameEvents.onResetBoard)
+  $('#viewBoard').on('click', gameEvents.onViewBoard)
 })

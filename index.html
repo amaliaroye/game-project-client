@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-    <head>
+<head>
       <title>Tic-Tac-Toe!</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -11,11 +11,13 @@
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
-    <body>
-      <h1>Tic-Tac-Toe!</h1>
-      <p id="message"></p>
+<body>
+      <header>
+        <h1>Tic-Tac-Toe!</h1>
+        <p id="message"></p>
+      </header>
       <form id="sign-up">
-        <input name="credentials[email]" type="email" placeholder="Email address" required>
+        <input name="credentials[email]" type="email" placeholder="Email address"required>
         <input name="credentials[password]" type="password" placeholder="Enter password" required>
         <input name="credentials[password_confirmation]" type="password" placeholder="Confirm password" required>
         <button type="submit">Sign Up!</button>
@@ -26,13 +28,11 @@
         <input name="credentials[password]" type="password" placeholder="Enter password" required>
         <button type="submit">Sign In!</button>
       </form>
-
       <form id="change-password">
         <input name="passwords[old]" type="password" placeholder="Enter old password" required>
         <input name="passwords[new]" type="password" placeholder="Enter new password" required>
         <button type="submit">Change Password!</button>
       </form>
-
       <form id="sign-out">
         <button type="submit">Sign Out</button>
       </form>
@@ -41,5 +41,23 @@
         <button id='demo-button'>Demo Button</button>
       </section>
 
-    </body>
+<main>
+<div class="container col-5 ">
+<div class="row row-cols-3 ">
+<button class="grid btn" id="0">0</button>
+<button class="grid btn" id="1">1</button>
+<button class="grid btn" id="2">2</button>
+<button class="grid btn" id="3">3</button>
+<button class="grid btn" id="4">4</button>
+<button class="grid btn" id="5">5</button>
+<button class="grid btn" id="6">6</button>
+<button class="grid btn" id="7">7</button>
+<button class="grid btn" id="8">8</button>
+</div>
+</div>
+<button class="btn" id="resetBoard">Reset</button>
+<button class="btn" id="viewBoard">View Board</button>
+</main>
+
+  </body>
 </html>
