@@ -16,6 +16,7 @@
         <h1>Tic-Tac-Toe!</h1>
         <p id="message"></p>
       </header>
+      <div>
       <form id="sign-up">
         <input name="credentials[email]" type="email" placeholder="Email address"required>
         <input name="credentials[password]" type="password" placeholder="Enter password" required>
@@ -27,6 +28,8 @@
         <input name="credentials[password]" type="password" placeholder="Enter password" required>
         <button type="submit">Sign In!</button>
       </form>
+    </div>
+    <div>
       <form id="change-password">
         <input name="passwords[old]" type="password" placeholder="Enter old password" required>
         <input name="passwords[new]" type="password" placeholder="Enter new password" required>
@@ -35,25 +38,29 @@
       <form id="sign-out">
         <button type="submit">Sign Out</button>
       </form>
+    </div>
 
 <main>
 <div class="container" id="gameArea">
 <div class="row row-cols-3" id="gameBoard">
 
-<input class="cell col" data-cell-index='0' data-cell-value='' id=0 type=button>
-<input class="cell col" data-cell-index='1' data-cell-value='' id=1 type=button>
-<input class="cell col" data-cell-index='2' data-cell-value='' id=2 type=button>
-<input class="cell col" data-cell-index='3' data-cell-value='' id=3 type=button>
-<input class="cell col" data-cell-index='4' data-cell-value='' id=4 type=button>
-<input class="cell col" data-cell-index='5' data-cell-value='' id=5 type=button>
-<input class="cell col" data-cell-index='6' data-cell-value='' id=6 type=button>
-<input class="cell col" data-cell-index='7' data-cell-value='' id=7 type=button>
-<input class="cell col" data-cell-index='8' data-cell-value='' id=8 type=button>
+<input class="cell col btn btn-primary" data-cell-index='0' data-cell-value='' id=0 type=button>
+<input class="cell col btn btn-primary" data-cell-index='1' data-cell-value='' id=1 type=button>
+<input class="cell col btn btn-primary" data-cell-index='2' data-cell-value='' id=2 type=button>
+<input class="cell col btn btn-primary" data-cell-index='3' data-cell-value='' id=3 type=button>
+<input class="cell col btn btn-primary" data-cell-index='4' data-cell-value='' id=4 type=button>
+<input class="cell col btn btn-primary" data-cell-index='5' data-cell-value='' id=5 type=button>
+<input class="cell col btn btn-primary" data-cell-index='6' data-cell-value='' id=6 type=button>
+<input class="cell col btn btn-primary" data-cell-index='7' data-cell-value='' id=7 type=button>
+<input class="cell col btn btn-primary" data-cell-index='8' data-cell-value='' id=8 type=button>
 
 </div>
-
-<button id="resetBoard">Reset</button>
-<button id="viewBoard">View Board</button>
+<button id="reset-board">Reset</button>
+<button id="view-board">View Board</button>
+</div>
+<div>
+  <button id="start-game">Start Game</button>
+  <p id="result"></p>
 </div>
 </main>
 
