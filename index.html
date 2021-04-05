@@ -22,7 +22,6 @@
         <input name="credentials[password_confirmation]" type="password" placeholder="Confirm password" required>
         <button type="submit">Sign Up!</button>
       </form>
-
       <form id="sign-in">
         <input name="credentials[email]" type="email" placeholder="Enter email" required>
         <input name="credentials[password]" type="password" placeholder="Enter password" required>
@@ -37,27 +36,26 @@
         <button type="submit">Sign Out</button>
       </form>
 
-      <section id='demo-container'>
-        <button id='demo-button'>Demo Button</button>
-      </section>
-
 <main>
-<div class="container col-5 ">
-<div class="row row-cols-3 ">
-<button class="grid btn" id="0">0</button>
-<button class="grid btn" id="1">1</button>
-<button class="grid btn" id="2">2</button>
-<button class="grid btn" id="3">3</button>
-<button class="grid btn" id="4">4</button>
-<button class="grid btn" id="5">5</button>
-<button class="grid btn" id="6">6</button>
-<button class="grid btn" id="7">7</button>
-<button class="grid btn" id="8">8</button>
+<div class="container" id="gameArea">
+<div class="row row-cols-3" id="gameBoard">
+
+<input class="cell col" data-cell-index='0' data-cell-value='' id=0 type=button>
+<input class="cell col" data-cell-index='1' data-cell-value='' id=1 type=button>
+<input class="cell col" data-cell-index='2' data-cell-value='' id=2 type=button>
+<input class="cell col" data-cell-index='3' data-cell-value='' id=3 type=button>
+<input class="cell col" data-cell-index='4' data-cell-value='' id=4 type=button>
+<input class="cell col" data-cell-index='5' data-cell-value='' id=5 type=button>
+<input class="cell col" data-cell-index='6' data-cell-value='' id=6 type=button>
+<input class="cell col" data-cell-index='7' data-cell-value='' id=7 type=button>
+<input class="cell col" data-cell-index='8' data-cell-value='' id=8 type=button>
+
 </div>
+
+<button id="resetBoard">Reset</button>
+<button id="viewBoard">View Board</button>
 </div>
-<button class="btn" id="resetBoard">Reset</button>
-<button class="btn" id="viewBoard">View Board</button>
 </main>
 
-  </body>
+</body>
 </html>
