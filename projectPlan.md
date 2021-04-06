@@ -33,17 +33,17 @@ Here's a rough sketch of what you should do and in what order:
 - [ ] [Deploy to Github Pages](https://git.generalassemb.ly/ga-wdi-boston/gh-pages-deployment-guide)
 
 ### Game UI Round 1
-- [ ] Design a basic game board with HTML/CSS
-- [ ] Add a click handler for when a space on the game board is clicked
-- [ ] When the user clicks on a space, first check that the space is empty
-- [ ] If they choose a valid space, add their token to the HTML/CSS board and the game cells array
-- [ ] Add messaging for the user when the user clicks on an invalid space
+- [x] Design a basic game board with HTML/CSS
+- [x] Add a click handler for when a space on the game board is clicked
+- [x] When the user clicks on a space, first check that the space is empty
+- [x] If they choose a valid space, add their token to the HTML/CSS board and the game cells array
+- [x] Add messaging for the user when the user clicks on an invalid space
 - [ ] [Deploy to Github Pages](https://git.generalassemb.ly/ga-wdi-boston/gh-pages-deployment-guide)
 
 ### Game UI Round 2
-- [ ] Rotate player between X and O
-- [ ] Add messaging for the user when the turn changes
-- [ ] Check for winner
+- [x] Rotate player between X and O
+- [x] Add messaging for the user when the turn changes
+- [x] Check for winner
 - [ ] [Deploy to Github Pages](https://git.generalassemb.ly/ga-wdi-boston/gh-pages-deployment-guide)
 
 ### Update Game

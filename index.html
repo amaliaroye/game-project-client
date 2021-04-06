@@ -16,53 +16,87 @@
         <h1>Tic-Tac-Toe!</h1>
         <p id="message"></p>
       </header>
-      <div>
-      <form id="sign-up">
-        <input name="credentials[email]" type="email" placeholder="Email address"required>
-        <input name="credentials[password]" type="password" placeholder="Enter password" required>
-        <input name="credentials[password_confirmation]" type="password" placeholder="Confirm password" required>
-        <button type="submit">Sign Up!</button>
-      </form>
-      <form id="sign-in">
-        <input name="credentials[email]" type="email" placeholder="Enter email" required>
-        <input name="credentials[password]" type="password" placeholder="Enter password" required>
-        <button type="submit">Sign In!</button>
-      </form>
-    </div>
-    <div>
-      <form id="change-password">
-        <input name="passwords[old]" type="password" placeholder="Enter old password" required>
-        <input name="passwords[new]" type="password" placeholder="Enter new password" required>
-        <button type="submit">Change Password!</button>
-      </form>
-      <form id="sign-out">
-        <button type="submit">Sign Out</button>
-      </form>
-    </div>
-
 <main>
-<div class="container" id="gameArea">
+<img src="/assets/images/x.svg" alt="x">
+<img src="/assets/images/o.svg" alt="O">
+
+<div class="container col-7" id="gameArea">
 <div class="row row-cols-3" id="gameBoard">
-
-<input class="cell col btn btn-primary" data-cell-index='0' data-cell-value='' id=0 type=button>
-<input class="cell col btn btn-primary" data-cell-index='1' data-cell-value='' id=1 type=button>
-<input class="cell col btn btn-primary" data-cell-index='2' data-cell-value='' id=2 type=button>
-<input class="cell col btn btn-primary" data-cell-index='3' data-cell-value='' id=3 type=button>
-<input class="cell col btn btn-primary" data-cell-index='4' data-cell-value='' id=4 type=button>
-<input class="cell col btn btn-primary" data-cell-index='5' data-cell-value='' id=5 type=button>
-<input class="cell col btn btn-primary" data-cell-index='6' data-cell-value='' id=6 type=button>
-<input class="cell col btn btn-primary" data-cell-index='7' data-cell-value='' id=7 type=button>
-<input class="cell col btn btn-primary" data-cell-index='8' data-cell-value='' id=8 type=button>
-
+<button
+  class="cell col btn btn-primary "
+  data-cell-index=0
+></button>
+<button
+  class="cell col btn btn-primary"
+  data-cell-index=1
+></button>
+<button
+  class="cell col btn btn-primary"
+  data-cell-index=2
+></button>
+<button
+  class="cell col btn btn-primary"
+  data-cell-index=3
+></button>
+<button
+  class="cell col btn btn-primary"
+  data-cell-index=4
+></button>
+<button
+  class="cell col btn btn-primary"
+  data-cell-index=5
+></button>
+<button
+  class="cell col btn btn-primary"
+  data-cell-index=6
+></button>
+<button
+  class="cell col btn btn-primary"
+  data-cell-index=7
+></button>
+<button
+  class="cell col btn btn-primary"
+  data-cell-index=8
+></button>
 </div>
-<button id="reset-board">Reset</button>
-<button id="view-board">View Board</button>
+<p id="display-result"></p>
+<div class="row">
+  <button class="btn btn-secondary" id="view-board">
+  View Board
+  </button>
+  <button class="btn btn-secondary" id="start-game">
+  Start New Game
+  </button>
 </div>
-<div>
-  <button id="start-game">Start Game</button>
-  <p id="result"></p>
 </div>
 </main>
+<br>
+
+<div class="container form-group">
+<form class="input-group" id="sign-up">
+  <input name="credentials[email]" type="email" placeholder="Email address"required>
+  <input name="credentials[password]" type="password" placeholder="Enter password" required>
+  <input name="credentials[password_confirmation]" type="password" placeholder="Confirm password" required>
+  <button type="submit">Sign Up!</button>
+</form>
+<form id="sign-in">
+  <input name="credentials[email]" type="email" placeholder="Enter email" required>
+  <input name="credentials[password]" type="password" placeholder="Enter password" required>
+  <button type="submit">Sign In!</button>
+</form>
+</div>
+
+<div>
+<form id="change-password">
+  <input name="passwords[old]" type="password" placeholder="Enter old password" required>
+  <input name="passwords[new]" type="password" placeholder="Enter new password" required>
+  <button type="submit">Change Password!</button>
+</form>
+<form id="sign-out">
+  <button type="submit">Sign Out</button>
+</form>
+</div>
 
 </body>
 </html>
+oh my gosh! I'm so sorry, I'm just seeing this now!

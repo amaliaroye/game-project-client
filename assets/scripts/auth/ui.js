@@ -38,10 +38,10 @@ const onChangePasswordError = function () {
 
 const onSignOutSuccess = function () {
   $('#message').text('Signed out successfully!')
-  // $('#change-password').hide()
-  // $('#sign-out').hide()
-  // $('#sign-up').show()
-  // $('#sign-in').show()
+  $('#change-password').hide()
+  $('#sign-out').hide()
+  $('#sign-up').show()
+  $('#sign-in').show()
   store.user = null // remove user data from 'store.js'
 }
 const onSignOutError = function () {
