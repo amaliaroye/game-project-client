@@ -1,4 +1,6 @@
 #!/bin/bash
+# Update: PATCH /games/:id
+# Updates a specific 'game' by id with 'cell': {'index', 'value'} and 'over'
 
 curl "https://tic-tac-toe-api-development.herokuapp.com/games/${ID}" \
   --include \
@@ -11,7 +13,7 @@ curl "https://tic-tac-toe-api-development.herokuapp.com/games/${ID}" \
         "index": "'"${INDEX}"'",
         "value": "'"${VALUE}"'"
       }
-      "over": "'"${VALUE}"'"
+      "over": "'"${OVER}"'"
     }
   }'
 
