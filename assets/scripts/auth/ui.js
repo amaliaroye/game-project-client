@@ -19,10 +19,10 @@ const onSignInSuccess = function (response) {
   store.user = response.user // store user data from API in 'store.js'
   $('#message').text('Signed in successfully. Welcome!')
   $('form').trigger('reset') // empty form
-  // $('#change-password').show()
-  // $('#sign-out').show()
-  // $('#sign-in').hide()
-  // $('#sign-up').hide()
+  $('#change-password').show()
+  $('#sign-out').show()
+  $('#sign-in').hide()
+  $('#sign-up').hide()
 }
 const onSignInError = function () {
   $('#message').text('Whoops! Something went wrong. Sign in failed. Please try again.')

@@ -7,8 +7,7 @@ Invoked by event handler callback assets/scripts/games/events.js
 const config = require('./../config') // imports apiUrl
 const store = require('./../store') // imports object from 'store.js'
 
-// make a request to view all games associated with user
-const index = function () {
+const index = function () { // make a request to view all games associated with user
   return $.ajax({
     method: 'GET', // update API
     url: config.apiUrl + '/games', // concat url path to api from in config.js
@@ -30,7 +29,7 @@ const show = function (id) { // show specific game
   })
 }
 
-const create = function () {
+const create = function () { // create a new game
   return $.ajax({
     method: 'POST',
     url: config.apiUrl + '/games', // concat url path to api from in config.js
@@ -41,10 +40,11 @@ const create = function () {
   })
 }
 
-const update = function (id) {
+const update = function (id, gameData) { // update game
   return $.ajax({
     method: 'PATCH', // update API
     url: config.apiUrl + '/games/' + id, // concat url path to api from in config.js
+    data: gameData, // send gameData from events.js to api?
     headers: {
       Authorization: 'Bearer ' + store.user.token
       // sends the 'user:token' from 'store.js'

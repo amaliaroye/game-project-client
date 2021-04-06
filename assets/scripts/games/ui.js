@@ -5,5 +5,7 @@ Modifies index.html
 */
 'use strict'
 const store = require('./../store')
-
+// mark cells with player icon
+// display winner/tie
+//
 module.exports = {}
