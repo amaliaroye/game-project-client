@@ -12,19 +12,15 @@ const winningCombos = [
   [0, 3, 6], [1, 4, 7], [2, 5, 8],
   [0, 4, 8], [2, 4, 6]
 ]
-
-// define empty arrays to track players' moves
 const playerX = {
   name: 'x', // name to insert into cells
-  icon: '<img src="/assets/images/x.svg" alt="x">',
-  moves: [],
-  wins: 0
+  icon: '<img src="/public/x.svg" alt="x">',
+  moves: []
 }
 const playerO = {
   name: 'o',
-  icon: '<img src="/assets/images/o.svg" alt="o">',
-  moves: [],
-  wins: 0
+  icon: '<img src="/public/o.svg" alt="o">',
+  moves: []
 }
 const gameData = {
   cells: ['', '', '', '', '', '', '', '', ''],
@@ -32,26 +28,25 @@ const gameData = {
     index: null,
     value: null
   },
-  over: null
+  over: false
 }
 
-const onStartGame = function () {
+const onStartGame = function (response) {
   event.preventDefault() // prevent page from refreshing
-  onResetBoard()
   api.create()
-    .then(console.log(gameData))
-  gameData.over = false
+    .then(ui.onStartGameSuccess)
   console.log(currentPlayer.name + '\'s turn')
 }
+
 let currentPlayer = playerX // X makes first move
-const changePlayer = function () {
+const changePlayer = function () { // swap currentPlayer
   if (currentPlayer === playerX) {
     currentPlayer = playerO
   } else {
     currentPlayer = playerX
-  } // after turn ends, swap players
+  }
 }
-const turnStart = function () {
+const startTurn = function () {
   event.preventDefault() // prevent page from refreshing
   changePlayer() // run changePlayer function
   console.log(currentPlayer.name + '\'s turn')
@@ -59,21 +54,22 @@ const turnStart = function () {
 
 const onSelectCell = function (event) {
   event.preventDefault() // prevent page from refreshing
-  const cellIndex = parseInt(event.target.getAttribute('data-cell-index')) // convert cell index to integer to use as index number
-  // $('event.target').attr('data-cell-index')
-
-  if (gameData.cells[cellIndex] === '') { // if cell is empty
-    gameData.cell.value = currentPlayer.name // marks gameBoard with player name
+  // gameData.cell.index = parseInt((event.target).getAttribute('data-cell-index'))
+  // convert cell index to integer to use as index number
+  const index = (event.target).getAttribute('data-cell-index')
+  if (gameData.cells[index] === '') { // if cell is empty
+    gameData.cells[index] = currentPlayer.name
+    // marks gameBoard with player name
+    gameData.cell.value = currentPlayer.name
     $(event.target).addClass('disabled') // disable button
     $(event.target).html(currentPlayer.icon) // places icon in cell
-    currentPlayer.moves.push(cellIndex) // keep track of moves per player
+    currentPlayer.moves.push(index) // keep track of moves per player
     checkWin() // run win condition checker
-  } else { // if cell is filled
-    console.log('That cell is filled, please choose another')
+  } else { // if cell is already filled
+    $('#message').text('That cell is filled, please choose another')
   }
-  // api.update()
-  //   .then(console.log(gameData))
-  turnStart()
+  // api.update(gameData)
+  startTurn()
 }
 const checkWin = function (event) {
   for (let i = 0; i < winningCombos.length; i++) {
@@ -83,19 +79,18 @@ const checkWin = function (event) {
     if (winCondition.every(winningCellIndex => currentPlayer.moves.includes(winningCellIndex)) === true) {
     // for every element in the array 'winCondition', check the array player.moves to see if it includes that value
       $('#display-result').text(currentPlayer.name + ' wins!')
-      currentPlayer.wins++ // add 1 to player.win count
-      $('.cell').addClass('disabled') // disable buttons
-      gameData.over = true
-    //   api.update()
-    //     .then(console.log(gameData))
+      // api.update(gameData)
+      //   .then(ui.onEndGameSuccess())
+      ui.onEndGameSuccess()
     }
   }
   if (gameData.cells.includes('') === false) {
     //  if no gameBoard elements return undefined (all squares are filled) and no player has won
     $('#display-result').text('It\'s a tie!')
-    gameData.over = true
-  //   api.update()
-  //     .then(console.log(gameData))
+    // gameData.over = true
+    // api.update(gameData)
+    //   .then(ui.onEndGameSuccess())
+    ui.onEndGameSuccess()
   }
 }
 const onResetBoard = function () {
@@ -108,18 +103,17 @@ const onResetBoard = function () {
 }
 const onViewBoard = function () {
   event.preventDefault()
-  console.log(gameData)
   console.log(gameData.cells)
   console.log('playerX.moves: ' + playerX.moves)
   console.log('playerO.moves: ' + playerO.moves)
 }
 
 module.exports = {
-  onSelectCell,
-  onResetBoard,
-  onViewBoard,
-  checkWin,
-  turnStart,
+  onStartGame,
+  startTurn,
   changePlayer,
-  onStartGame
+  onSelectCell,
+  checkWin,
+  onResetBoard,
+  onViewBoard
 }

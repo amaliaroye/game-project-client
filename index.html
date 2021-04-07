@@ -1,99 +1,80 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-      <title>Tic-Tac-Toe!</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tic-Tac-Toe!</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <!-- Do not add `link` tags-->
-      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+  <!-- Do not add `link` tags-->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 
-      <!-- Do not add `script` tags-->
-      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
-      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
-    </head>
+  <!-- Do not add `script` tags-->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+</head>
+
 <body>
-<header>
+  <header class="container">
     <h1>Tic-Tac-Toe!</h1>
+    <p id="message"></p>
   </header>
-<main>
+  <main class="container">
+    <div class="container col-7" id="game-area">
+      <div class="row row-cols-3" id="game-board">
+        <button class="cell col btn btn-primary" data-cell-index=0></button>
+        <button class="cell col btn btn-primary" data-cell-index=1></button>
+        <button class="cell col btn btn-primary" data-cell-index=2></button>
+        <button class="cell col btn btn-primary" data-cell-index=3></button>
+        <button class="cell col btn btn-primary" data-cell-index=4></button>
+        <button class="cell col btn btn-primary" data-cell-index=5></button>
+        <button class="cell col btn btn-primary" data-cell-index=6></button>
+        <button class="cell col btn btn-primary" data-cell-index=7></button>
+        <button class="cell col btn btn-primary" data-cell-index=8></button>
+      </div>
+      <p id="display-result"></p>
+    </div>
+    <div class="row" id="option-buttons">
+      <button name="games-show" class="btn btn-outline-primary" id="view-board">View Board</button>
+      <button name="games-show" class="btn btn-outline-primary" id="reset-board">Reset Board</button>
+      <button name="games-create" class="btn btn-outline-primary" id="start-game">Start New Game</button>
+    </div>
+  </main>
 
-<div class="container col-7" id="gameArea">
-<div class="row row-cols-3" id="gameBoard">
-  <button
-    class="cell col btn btn-primary "
-    data-cell-index=0
-  ></button>
-  <button
-    class="cell col btn btn-primary"
-    data-cell-index=1
-  ></button>
-  <button
-    class="cell col btn btn-primary"
-    data-cell-index=2
-  ></button>
-  <button
-    class="cell col btn btn-primary"
-    data-cell-index=3
-  ></button>
-  <button
-    class="cell col btn btn-primary"
-    data-cell-index=4
-  ></button>
-  <button
-    class="cell col btn btn-primary"
-    data-cell-index=5
-  ></button>
-  <button
-    class="cell col btn btn-primary"
-    data-cell-index=6
-  ></button>
-  <button
-    class="cell col btn btn-primary"
-    data-cell-index=7
-  ></button>
-  <button
-    class="cell col btn btn-primary"
-    data-cell-index=8
-  ></button>
-</div>
-<p id="display-result"></p>
-
-<div class="row" id="option-buttons">
-  <button class="btn btn-secondary" id="view-board">
-  View Board
-  </button>
-  <button name="games-create" class="btn btn-secondary" id="start-game">
-  Start New Game
-  </button>
-</div>
+  <div class="container" id="logged-out">
+    <form class="form-group justify-items " id="sign-up">
+      <h2>Sign Up</h2>
+      <label for="credentials[email]" class="col-form-label">Email Address</label>
+      <input name="credentials[email]" class="form-control col-auto" type="email" placeholder="Email address" required>
+      <label for="credentials[password]" class="col-form-label">Password</label>
+      <input name="credentials[password]" class="form-control col-auto" type="password" placeholder="Enter password" required>
+      <label for="credentials[password_confirmation]" class="col-form-label">Confirm Password</label>
+      <input name="credentials[password_confirmation]" class="form-control col-auto" type="password" placeholder="Confirm password" required>
+      <button type="submit" class="btn btn-primary form-control col-auto">Sign Up!</button>
+    </form>
+    <form class="form-group" id="sign-in">
+      <h2>Sign In</h2>
+      <label for="credentials[email]" class="col-form-label">Email Address</label>
+      <input name="credentials[email]" class="form-control col-auto" type="email" placeholder="Enter email" required>
+       <label for="credentials[password]" class="col-form-label">Password</label>
+      <input name="credentials[password]" class="form-control col-auto" type="password" placeholder="Enter password" required>
+      <button type="submit" class="btn btn-primary form-control col-auto">Sign In!</button>
+    </form>
 </div>
 
-</main>
-
-<div class="container form-group" id="logged-out">
-  <form class="input-group" id="sign-up">
-    <input name="credentials[email]" type="email" placeholder="Email address"required>
-    <input name="credentials[password]" type="password" placeholder="Enter password" required>
-    <input name="credentials[password_confirmation]" type="password" placeholder="Confirm password" required>
-    <button type="submit">Sign Up!</button>
-  </form>
-  <form class="input-group" id="sign-in">
-    <input name="credentials[email]" type="email" placeholder="Enter email" required>
-    <input name="credentials[password]" type="password" placeholder="Enter password" required>
-    <button type="submit">Sign In!</button>
-  </form>
+<div class="container" id="logged-in">
+    <form class="form-group" id="change-password">
+      <h2>Change Password</h2>
+      <label for="passwords[old]" class="col-form-label">Old Password</label>
+      <input name="passwords[old]" class="form-control col-auto"type="password" placeholder="Enter old password" required>
+      <label for="passwords[new]" class="col-form-label">New Password</label>
+      <input name="passwords[new]" class="form-control col-auto"type="password" placeholder="Enter new password" required>
+      <button type="submit" class="btn btn-primary form-control col-auto">Change Password!</button>
+    </form>
+    <form class="form-group" id="sign-out">
+      <button type="submit" class="btn btn-secondary form-control col-auto">Sign Out</button>
+    </form>
 </div>
-<div class="container form-group" id="logged-in">
-  <form class="input-group" id="sign-out">
-    <button type="submit" class="btn">Sign Out</button>
-  </form>
-  <form class="input-group" id="change-password">
-    <input name="passwords[old]" type="password" placeholder="Enter old password" required>
-    <input name="passwords[new]" type="password" placeholder="Enter new password" required>
-    <button type="submit" class="btn">Change Password!</button>
-  </form>
-</div>
-<p id="message"></p>
 
 </body>
+
 </html>

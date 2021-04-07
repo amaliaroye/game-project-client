@@ -7,7 +7,7 @@ Modifies index.html
 const store = require('./../store')
 
 const onSignUpSuccess = function () {
-  $('#message').text('Created new account successfully!')
+  $('#message').text('Created new account successfully! Please sign-in!')
   $('form').trigger('reset') // empty form
 }
 
@@ -23,6 +23,7 @@ const onSignInSuccess = function (response) {
   $('#sign-out').show()
   $('#sign-in').hide()
   $('#sign-up').hide()
+  $('#option-buttons').show()
 }
 const onSignInError = function () {
   $('#message').text('Whoops! Something went wrong. Sign in failed. Please try again.')
@@ -38,6 +39,7 @@ const onChangePasswordError = function () {
 
 const onSignOutSuccess = function () {
   $('#message').text('Signed out successfully!')
+  $('#game-area').hide()
   $('#change-password').hide()
   $('#sign-out').hide()
   $('#sign-up').show()

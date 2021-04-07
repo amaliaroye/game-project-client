@@ -24,7 +24,7 @@ Here's a rough sketch of what you should do and in what order:
 - [x] Change Password (curl then web app)
 - [x] Sign Out (curl then web page)
 - [x] All API calls have success or failure messages
-- [ ] [Deploy to Github Pages](https://git.generalassemb.ly/ga-wdi-boston/gh-pages-deployment-guide)
+- [x] [Deploy to Github Pages](https://git.generalassemb.ly/ga-wdi-boston/gh-pages-deployment-guide)
 
 ### Create New Game
 - [ ] Display New Game button when a user signs in
@@ -38,17 +38,17 @@ Here's a rough sketch of what you should do and in what order:
 - [x] When the user clicks on a space, first check that the space is empty
 - [x] If they choose a valid space, add their token to the HTML/CSS board and the game cells array
 - [x] Add messaging for the user when the user clicks on an invalid space
-- [ ] [Deploy to Github Pages](https://git.generalassemb.ly/ga-wdi-boston/gh-pages-deployment-guide)
+- [x] [Deploy to Github Pages](https://git.generalassemb.ly/ga-wdi-boston/gh-pages-deployment-guide)
 
 ### Game UI Round 2
 - [x] Rotate player between X and O
 - [x] Add messaging for the user when the turn changes
 - [x] Check for winner
-- [ ] [Deploy to Github Pages](https://git.generalassemb.ly/ga-wdi-boston/gh-pages-deployment-guide)
+- [x] [Deploy to Github Pages](https://git.generalassemb.ly/ga-wdi-boston/gh-pages-deployment-guide)
 
 ### Update Game
 - [ ] Make [PATCH games API call](https://git.generalassemb.ly/ga-wdi-boston/game-project-api/blob/master/docs/game.md#update-patch-gamesid) to update game
-- [ ] Add messaging for the user when the game is over (win or draw)
+- [x] Add messaging for the user when the game is over (win or draw)
 - [ ] Do not allow users to add an X or O to any spaces after the game is over
 - [ ] [Deploy to Github Pages](https://git.generalassemb.ly/ga-wdi-boston/gh-pages-deployment-guide)
 
