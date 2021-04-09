@@ -40,11 +40,19 @@ const create = function () { // create a new game
   })
 }
 
-const update = function (gameData) { // update game
+const update = function () { // update game
   return $.ajax({
     method: 'PATCH', // update API
     url: config.apiUrl + '/games/' + store.game._id, // concat url path to api from in config.js
-    data: gameData, // send gameData from events.js to api
+    data: {
+      game: {
+        cell: {
+          index: store.game.cell.index,
+          value: store.game.cell.value
+        },
+        over: store.game.over
+      }
+    },
     headers: {
       Authorization: 'Bearer ' + store.user.token
       // sends the 'user:token' from 'store.js'
