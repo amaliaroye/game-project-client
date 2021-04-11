@@ -5,11 +5,11 @@ Modifies index.html
 */
 'use strict'
 const store = require('./../store')
-const events = require('events')
+// const events = require('events')
 
 const onStartGameSuccess = function (response) {
   store.game = response.game // store game data from API in 'store.js'
-  $('#message').text('New game started! ').fadeOut(3000)
+  $('#message').text('New game started! ')
   $('#game-board').slideDown()
   $('.btn').removeClass('disabled') // enable buttons
   $('.cell').empty() // remove icon markers from buttons
@@ -18,12 +18,9 @@ const onStartGameSuccess = function (response) {
 const onSelectCellSuccess = function () {
 }
 const onEndGameSuccess = function () {
-  store.game.over = true // set game.over property
-  events.playerX.moves = []
-  events.playerO.moves = []
-  store.game.cells.fill('')
-  $('#message').text('Game over!').fadeOut(3000)
+  $('#message').text('Game over!')
   $('.cell').addClass('disabled') // disable buttons
+  store.game = null
 }
 
 module.exports = {

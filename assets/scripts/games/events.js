@@ -2,6 +2,7 @@
 EVENT HANDLER: assets\scripts\games\events.js
 defines event handler functions using values sent by assets/scripts/app.js
 */
+'use strict'
 const api = require('./api')
 const ui = require('./ui')
 const store = require('./../store')
@@ -26,9 +27,10 @@ const onStartGame = function () {
   event.preventDefault() // prevent page from refreshing
   api.create()
     .then(ui.onStartGameSuccess)
+    .then(startTurn())
 }
 
-let currentPlayer = playerX // X makes first move
+let currentPlayer = playerO // X makes first move
 const changePlayer = function () { // swap currentPlayer
   if (currentPlayer === playerX) {
     currentPlayer = playerO
@@ -38,14 +40,14 @@ const changePlayer = function () { // swap currentPlayer
 }
 const startTurn = function () {
   event.preventDefault() // prevent page from refreshing
-  checkWin() // run win condition checker
   changePlayer() // run changePlayer function
-  $('#message').text('It\'s ' + currentPlayer.name + '\'s turn!').fadeOut(3000)
+  console.log('It\'s ' + currentPlayer.name + '\'s turn!')
+  $('#message').text('It\'s ' + currentPlayer.name + '\'s turn!')
 }
 
 const onSelectCell = function (event) {
   event.preventDefault() // prevent page from refreshing
-  const index = (event.target).getAttribute('data-cell-index') // gets index of the cell selected from index.html
+  const index = parseInt((event.target).getAttribute('data-cell-index')) // gets index of the cell selected from index.html
   if (store.game.cells[index] === '') { // checks if cell is empty in game.cells
     store.game.cells[index] = currentPlayer.name // marks game.cells with player name
     store.game.cell = {
@@ -54,29 +56,40 @@ const onSelectCell = function (event) {
     }
     $(event.target).addClass('disabled').html(currentPlayer.icon) // disables button and displays icon
     currentPlayer.moves.push(index) // keep track of moves per player
-    checkWin() // run win condition checker
   } else { // if cell is already filled
-    $('#message').text('That cell is filled, please choose another').fadeOut(3000)
+    $('#message').text('That cell is filled, please choose another')
   }
-  api.update(store.game)
-  startTurn()
+  api.update()
+  checkWin() // run win condition checker
 }
+
 const checkWin = function () {
   for (let i = 0; i < winningCombos.length; i++) { // for every element in array 'winningCombos'
     const winCondition = winningCombos[i] // set variable 'winCondition' to element
     if (winCondition.every(winningCellIndex => currentPlayer.moves.includes(winningCellIndex)) === true) {
       // for every element in the array 'winCondition', check the array currentPlayer.moves to see if it includes that value
-      $('#message').text(currentPlayer.name + ' wins!').fadeOut(3000)
-      api.update(store.game)
-        .then(ui.onEndGameSuccess())
+      console.log(currentPlayer.name + ' wins!')
+      $('#message').text(currentPlayer.name + ' wins!')
+      playerX.moves = []
+      playerO.moves = []
+      store.game.over = true // set game.over property
+      api.update()
+        .then(ui.onEndGameSuccess)
+      return
+    }
+    if (store.game.cells.includes('') === false) {
+    //  if no gameBoard elements return undefined (all squares are filled) and no player has won
+      $('#message').text('It\'s a tie!')
+      console.log('It\'s a tie!')
+      playerX.moves = []
+      playerO.moves = []
+      store.game.over = true // set game.over property
+      api.update()
+        .then(ui.onEndGameSuccess)
+      return
     }
   }
-  if (store.game.cells.includes('') === false) {
-    //  if no gameBoard elements return undefined (all squares are filled) and no player has won
-    $('#message').text('It\'s a tie!').fadeOut(3000)
-    api.update(store.game)
-      .then(ui.onEndGameSuccess())
-  }
+  startTurn()
 }
 // const onResetBoard = function () {
 //   event.preventDefault()
@@ -84,14 +97,13 @@ const checkWin = function () {
 //   playerO.moves = []
 //   gameData.cells.fill('')
 // }
+
 const onViewBoard = function () {
   event.preventDefault()
   console.log('store ', store)
-  console.log('store.game ', store.game)
-  console.log('store.user ', store.user)
-  console.log('store.game.cells', store.game.cells)
-  // console.log('playerX.moves: ' + playerX.moves)
-  // console.log('playerO.moves: ' + playerO.moves)
+  console.log('playerX ', playerX.moves)
+  console.log('playerO ', playerO.moves)
+  console.log('currentPlayer ', currentPlayer)
 }
 
 module.exports = {
