@@ -18,12 +18,9 @@ const onSignUpError = function () {
 const onSignInSuccess = function (response) {
   store.user = response.user // store user data from API in 'store.js'
   $('#message').text('Signed in successfully. Welcome!')
+  $('#logged-in').toggleClass('hidden') // show logged-in sidebar
+  $('#logged-out').toggleClass('hidden') // hide sign-in/sign-up forms
   $('form').trigger('reset') // empty form
-  $('#change-password').show()
-  $('#sign-out').show()
-  $('#sign-in').hide()
-  $('#sign-up').hide()
-  $('#option-buttons').show()
 }
 const onSignInError = function () {
   $('#message').text('Whoops! Something went wrong. Sign in failed. Please try again.')
@@ -34,16 +31,13 @@ const onChangePasswordSuccess = function (response) {
   $('#change-password').trigger('reset') // empty form
 }
 const onChangePasswordError = function () {
-  $('#message').text('Whoops! Something went wrong. Password change failed.')
+  $('#message').text('Whoops! Something went wrong. Your password was not changed.')
 }
 
 const onSignOutSuccess = function () {
-  $('#message').text('Signed out successfully!')
-  $('#game-area').hide()
-  $('#change-password').hide()
-  $('#sign-out').hide()
-  $('#sign-up').show()
-  $('#sign-in').show()
+  $('#message').text('Signed out! Play again soon!')
+  $('#logged-in').toggleClass('hidden')
+  $('#logged-out').toggleClass('hidden')
   store.user = null // remove user data from 'store.js'
 }
 const onSignOutError = function () {

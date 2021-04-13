@@ -18,7 +18,7 @@ const playerX = {
   moves: []
 }
 const playerO = {
-  name: 'o',
+  name: 'o', // name to insert into game.cells
   icon: '<img src="public/o.svg" alt="o">',
   moves: []
 }
@@ -41,8 +41,7 @@ const changePlayer = function () { // swap currentPlayer
 const startTurn = function () {
   event.preventDefault() // prevent page from refreshing
   changePlayer() // run changePlayer function
-  console.log('It\'s ' + currentPlayer.name + '\'s turn!')
-  $('#message').text('It\'s ' + currentPlayer.name + '\'s turn!')
+  $('#current-player').text('It\'s ' + currentPlayer.name + '\'s turn!')
 }
 
 const onSelectCell = function (event) {
@@ -68,8 +67,7 @@ const checkWin = function () {
     const winCondition = winningCombos[i] // set variable 'winCondition' to element
     if (winCondition.every(winningCellIndex => currentPlayer.moves.includes(winningCellIndex)) === true) {
       // for every element in the array 'winCondition', check the array currentPlayer.moves to see if it includes that value
-      console.log(currentPlayer.name + ' wins!')
-      $('#message').text(currentPlayer.name + ' wins!')
+      $('#game-result').text(currentPlayer.name + ' wins!')
       playerX.moves = []
       playerO.moves = []
       store.game.over = true // set game.over property
@@ -79,8 +77,7 @@ const checkWin = function () {
     }
     if (store.game.cells.includes('') === false) {
     //  if no gameBoard elements return undefined (all squares are filled) and no player has won
-      $('#message').text('It\'s a tie!')
-      console.log('It\'s a tie!')
+      $('#game-result').text('It\'s a tie!')
       playerX.moves = []
       playerO.moves = []
       store.game.over = true // set game.over property
@@ -91,27 +88,12 @@ const checkWin = function () {
   }
   startTurn()
 }
-// const onResetBoard = function () {
-//   event.preventDefault()
-//   playerX.moves = []
-//   playerO.moves = []
-//   gameData.cells.fill('')
-// }
 
-const onViewBoard = function () {
-  event.preventDefault()
-  console.log('store ', store)
-  console.log('playerX ', playerX.moves)
-  console.log('playerO ', playerO.moves)
-  console.log('currentPlayer ', currentPlayer)
-}
 
 module.exports = {
   onStartGame,
   startTurn,
   changePlayer,
   onSelectCell,
-  checkWin,
-  // onResetBoard,
-  onViewBoard
+  checkWin
 }

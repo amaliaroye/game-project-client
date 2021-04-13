@@ -8,20 +8,15 @@ and sends to assets/scripts/games/events.js
 const authEvents = require('./auth/events')
 const gameEvents = require('./games/events')
 
-$(() => {
-  // On page load, hide game-area, change-password, and sign-out forms
-  $('#game-board').hide()
-  $('#option-buttons').hide()
-  $('#change-password').hide()
-  $('#sign-out').hide()
+$(() => { // when the document is loaded
   // authEvents
   $('#sign-up').on('submit', authEvents.onSignUp)
   $('#sign-in').on('submit', authEvents.onSignIn)
-  $('#change-password').on('submit', authEvents.onChangePassword)
+
   $('#sign-out').on('click', authEvents.onSignOut)
+  $('#change-password').on('submit', authEvents.onChangePassword)
+
   // gameEvents
   $('.cell').on('click', gameEvents.onSelectCell)
-  $('#reset-board').on('click', gameEvents.onResetBoard)
-  $('#view-board').on('click', gameEvents.onViewBoard)
-  $('#start-game').on('click', gameEvents.onStartGame)
+  $('#create').on('click', gameEvents.onStartGame)
 })

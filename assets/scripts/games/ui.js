@@ -5,20 +5,19 @@ Modifies index.html
 */
 'use strict'
 const store = require('./../store')
-// const events = require('events')
+const events = require('events')
 
 const onStartGameSuccess = function (response) {
   store.game = response.game // store game data from API in 'store.js'
   $('#message').text('New game started! ')
-  $('#game-board').slideDown()
-  $('.btn').removeClass('disabled') // enable buttons
-  $('.cell').empty() // remove icon markers from buttons
+  $('.cell').removeClass('disabled').empty() // enable buttons and remove icon markers
 }
 
 const onSelectCellSuccess = function () {
 }
+
 const onEndGameSuccess = function () {
-  $('#message').text('Game over!')
+  $('#message').text('Game over!') // display game over message
   $('.cell').addClass('disabled') // disable buttons
   store.game = null
 }

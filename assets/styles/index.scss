@@ -1,12 +1,62 @@
-@import '~bootstrap/scss/bootstrap';
+$orange: #fec367;
+$red: #d6685c;
+$teal: #2e8e82;
+$yellow: #fff9b1;
+$salmon: #f37f46;
+$green: #93ca86;
+$white: #feffef;
+$gray: #f7eedf;
+$brown: #60565e;
+$black: #443740;
 
-.cell {
-  padding: 3px;
-  height: 40px;
-  width: 40px;
-}
+@import '~bootstrap/scss/bootstrap';
 
 img {
   height: 32px;
   width: 32px;
+}
+
+body {
+  background-color: $orange;
+  color: $white;
+}
+
+div {
+  border-radius: 2px;
+  // outline: 1px dotted $yellow;
+}
+
+.container {
+  // fixed-width, keeps content centered with responsive margins
+  background-color: $orange;
+}
+
+.container-fluid {
+  // no-margin full-width, expands to 100% of it's parent element (usually the body)
+  background-color: $orange;
+}
+
+.sidebar {
+  background-color: $red;
+  height: 100%;
+}
+
+.game-area {
+  background-color: $black;
+}
+
+.cell {
+  background-color: $brown;
+  height: 40px;
+  padding: 3px;
+  width: 40px;
+}
+
+.btn {
+  background-color: $teal;
+  color: $white;
+}
+
+.hidden {
+  visibility: hidden;
 }
