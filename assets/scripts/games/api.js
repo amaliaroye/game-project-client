@@ -41,6 +41,7 @@ const create = function () { // create a new game
 }
 
 const update = function () { // update game
+  console.log(store.game.cell)
   return $.ajax({
     method: 'PATCH', // update API
     url: config.apiUrl + '/games/' + store.game._id, // concat url path to api from in config.js

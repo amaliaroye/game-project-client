@@ -17,6 +17,8 @@ $(() => { // when the document is loaded
   $('#change-password').on('submit', authEvents.onChangePassword)
 
   // gameEvents
+  $('.cell').addClass('disabled')
   $('.cell').on('click', gameEvents.onSelectCell)
   $('#create').on('click', gameEvents.onStartGame)
+  $('#test').on('click', gameEvents.onTestButton)
 })

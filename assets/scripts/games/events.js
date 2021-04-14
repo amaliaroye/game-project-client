@@ -7,93 +7,87 @@ const api = require('./api')
 const ui = require('./ui')
 const store = require('./../store')
 
-const winningCombos = [
-  [0, 1, 2], [3, 4, 5], [6, 7, 8],
-  [0, 3, 6], [1, 4, 7], [2, 5, 8],
-  [0, 4, 8], [2, 4, 6]
-]
-const playerX = {
-  name: 'x', // name to insert into cells
-  icon: '<img src="public/x.svg" alt="x">',
-  moves: []
-}
-const playerO = {
-  name: 'o', // name to insert into game.cells
-  icon: '<img src="public/o.svg" alt="o">',
-  moves: []
-}
+// set currentPlayer to playerO so playerX goes first after the startTurn function
+let currentPlayer = store.playerO
 
 const onStartGame = function () {
   event.preventDefault() // prevent page from refreshing
   api.create()
     .then(ui.onStartGameSuccess)
-    .then(startTurn())
+    .then(startTurn()) // run `startTurn` function
+    .catch(console.error)
 }
 
-let currentPlayer = playerO // X makes first move
-const changePlayer = function () { // swap currentPlayer
-  if (currentPlayer === playerX) {
-    currentPlayer = playerO
-  } else {
-    currentPlayer = playerX
-  }
-}
-const startTurn = function () {
-  event.preventDefault() // prevent page from refreshing
-  changePlayer() // run changePlayer function
+function startTurn () {
+  // ternary operator function to swap players
+  currentPlayer = (currentPlayer === store.playerX) ? store.playerO : store.playerX
+  console.log('It\'s ' + currentPlayer.name + '\'s turn!')
   $('#current-player').text('It\'s ' + currentPlayer.name + '\'s turn!')
 }
 
 const onSelectCell = function (event) {
   event.preventDefault() // prevent page from refreshing
-  const index = parseInt((event.target).getAttribute('data-cell-index')) // gets index of the cell selected from index.html
-  if (store.game.cells[index] === '') { // checks if cell is empty in game.cells
-    store.game.cells[index] = currentPlayer.name // marks game.cells with player name
+
+  // gets index of the cell selected from index.html
+  const index = parseInt((event.target).getAttribute('data-cell-index'))
+
+  // checks if indexed cell is empty in store.game.cells
+  if (store.game.cells[index] === '') {
+    // marks game.cells with player name
+    store.game.cells[index] = currentPlayer.name
+
+    // changes cell data to update api
     store.game.cell = {
       index: index,
-      value: currentPlayer.name // sets game.cell.value to currentPlayer.name
+      value: currentPlayer.name
     }
+
     $(event.target).addClass('disabled').html(currentPlayer.icon) // disables button and displays icon
-    currentPlayer.moves.push(index) // keep track of moves per player
+    currentPlayer.moves.push(index) // keep track of moves per player in array
   } else { // if cell is already filled
+    console.log('That cell is filled, please choose another')
     $('#message').text('That cell is filled, please choose another')
   }
-  api.update()
   checkWin() // run win condition checker
 }
 
 const checkWin = function () {
-  for (let i = 0; i < winningCombos.length; i++) { // for every element in array 'winningCombos'
-    const winCondition = winningCombos[i] // set variable 'winCondition' to element
+  for (let i = 0; i < store.winningCombos.length; i++) { // for every element in array 'winningCombos'
+    const winCondition = store.winningCombos[i] // set variable 'winCondition' to element
     if (winCondition.every(winningCellIndex => currentPlayer.moves.includes(winningCellIndex)) === true) {
       // for every element in the array 'winCondition', check the array currentPlayer.moves to see if it includes that value
+      console.log(currentPlayer.name + ' wins!')
       $('#game-result').text(currentPlayer.name + ' wins!')
-      playerX.moves = []
-      playerO.moves = []
       store.game.over = true // set game.over property
       api.update()
         .then(ui.onEndGameSuccess)
+        .catch(console.error)
       return
     }
     if (store.game.cells.includes('') === false) {
     //  if no gameBoard elements return undefined (all squares are filled) and no player has won
+      console.log('It\'s a tie!')
       $('#game-result').text('It\'s a tie!')
-      playerX.moves = []
-      playerO.moves = []
       store.game.over = true // set game.over property
       api.update()
         .then(ui.onEndGameSuccess)
+        .catch(console.error)
       return
     }
   }
   startTurn()
 }
 
+const onTestButton = function () {
+  console.log('store.playerX.moves: ', store.playerX.moves)
+  console.log('store.playerO.moves: ', store.playerO.moves)
+  console.log('store: ', store)
+}
 
 module.exports = {
   onStartGame,
   startTurn,
-  changePlayer,
   onSelectCell,
-  checkWin
+  checkWin,
+  onTestButton
 }

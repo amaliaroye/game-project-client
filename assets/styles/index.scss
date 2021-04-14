@@ -12,8 +12,8 @@ $black: #443740;
 @import '~bootstrap/scss/bootstrap';
 
 img {
-  height: 32px;
-  width: 32px;
+  height: 80px;
+  width: 80px;
 }
 
 body {
@@ -29,32 +29,35 @@ div {
 .container {
   // fixed-width, keeps content centered with responsive margins
   background-color: $orange;
+  padding: 10px;
 }
 
 .container-fluid {
   // no-margin full-width, expands to 100% of it's parent element (usually the body)
   background-color: $orange;
+  padding: 10px;
 }
 
 .sidebar {
   background-color: $red;
   height: 100%;
+  padding: 10px;
 }
 
 .game-area {
   background-color: $black;
-}
-
-.cell {
-  background-color: $brown;
-  height: 40px;
-  padding: 3px;
-  width: 40px;
+  // padding: 5px;
 }
 
 .btn {
   background-color: $teal;
   color: $white;
+}
+
+.cell {
+  background-color: $brown;
+  height: 100px;
+  // width: 40px;
 }
 
 .hidden {
