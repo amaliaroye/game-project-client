@@ -11,10 +11,7 @@ $black: #443740;
 
 @import '~bootstrap/scss/bootstrap';
 
-img {
-  height: 80px;
-  width: 80px;
-}
+// $enable-responsive-font-sizes: true
 
 body {
   background-color: $orange;
@@ -22,31 +19,21 @@ body {
 }
 
 div {
-  border-radius: 2px;
-  // outline: 1px dotted $yellow;
+  border-radius: 4px;
 }
 
-.container {
-  // fixed-width, keeps content centered with responsive margins
-  background-color: $orange;
-  padding: 10px;
-}
-
-.container-fluid {
-  // no-margin full-width, expands to 100% of it's parent element (usually the body)
-  background-color: $orange;
-  padding: 10px;
+img {
+  display: inline-block;
 }
 
 .sidebar {
   background-color: $red;
-  height: 100%;
-  padding: 10px;
+  max-height: 100%;
+  padding: -10px;
 }
 
 .game-area {
   background-color: $black;
-  // padding: 5px;
 }
 
 .btn {
@@ -56,10 +43,19 @@ div {
 
 .cell {
   background-color: $brown;
-  height: 100px;
-  // width: 40px;
+  // padding-bottom: 30%;
+  // width: 30%;
+  border: -10px;
+  border-color: $black;
+  height: 150px;
+
+  &.clicked {
+    background-color: $black;
+  }
 }
 
-.hidden {
-  visibility: hidden;
+
+.scoreboard {
+  background-color: $red;
+  padding: -10px;
 }

@@ -15,109 +15,104 @@
 
 <body class="container-fluid">
   <header class="container">
-    <h1>Tic-Tac-Toe!</h1>
+
   </header>
 
   <main class="container">
     <section class="row">
-
       <!-- Game grid area wrapper -->
       <div class="col-sm-8 game-area" id="game-area">
-        <!-- Message display for alerts -->
-        <div class="" id="message-display">
-          <p id="message"></p>
-        </div>
 
-        <!-- Grid of buttons -->
-        <div class="row row-cols-3" id="game-board">
-          <button class="cell col btn" data-cell-index=0></button>
-          <button class="cell col btn" data-cell-index=1></button>
-          <button class="cell col btn" data-cell-index=2></button>
-          <button class="cell col btn" data-cell-index=3></button>
-          <button class="cell col btn" data-cell-index=4></button>
-          <button class="cell col btn" data-cell-index=5></button>
-          <button class="cell col btn" data-cell-index=6></button>
-          <button class="cell col btn" data-cell-index=7></button>
-          <button class="cell col btn" data-cell-index=8></button>
+        <div class="overflow-hidden">
+          <!-- Grid of buttons -->
+          <div class="row row-cols-3 " id="game-board">
+            <button class="cell col btn" id=0 data-cell-index='0'></button>
+            <button class="cell col btn" id=1 data-cell-index='1'></button>
+            <button class="cell col btn" id=2 data-cell-index='2'></button>
+            <button class="cell col btn" id=3 data-cell-index='3'></button>
+            <button class="cell col btn" id=4 data-cell-index='4'></button>
+            <button class="cell col btn" id=5 data-cell-index='5'></button>
+            <button class="cell col btn" id=6 data-cell-index='6'></button>
+            <button class="cell col btn" id=7 data-cell-index='7'></button>
+            <button class="cell col btn" id=8 data-cell-index='8'></button>
+          </div> <!-- Grid of buttons -->
         </div>
-        <br>
-        <!-- TEST BUTTON -->
-        <input name="test" type="button" class="btn btn-block " id="test" value="Console.lumberjack Test">
-        <!-- TEST BUTTON -->
-      </div>
+      </div> <!-- Game grid area wrapper -->
 
       <!-- Game Sidebar -->
       <div class="sidebar col-sm-4">
-        <div class="hidden" id="logged-in">
-          <!-- Display current player -->
-          <div id="game-info" class="">
-            <p id="current-player">current-player</p>
-            <p id="game-result">game-result</p>
-          </div>
+        <h1>Tic Tac Toe!</h1>
+        <hr>
+        <div class="row">
+          <div class="col" id="message"></div>
+        </div>
+        <div class="d-none" id="logged-in">
 
-          <!-- Displays possible score tracker -->
-          <!-- <div id="score">
-        <p id="x-wins">x-wins</p>
-        <p id="o-wins">o-wins</p>
-        <p id="tied-games">tied-games</p>
-      </div> -->
+          <div id="game-result"></div>
+          <!-- Display current player -->
+          <div class="" id="current-player"></div>
+
+          <!-- Displays score tracker -->
+          <!-- <div id="scoreboard" class="row scoreboard">
+            <div id="x-wins" class="col score"></div>
+            <div id="o-wins" class="col score"></div>
+            <div id="tied-games" class="col score"></div>
+          </div> -->
 
           <!-- Start new game button -->
           <div class="new-game">
-            <input name="create" type="button" class="btn btn-block" id="create" value="Start New Game">
+            <input name="create" type="button" class="btn btn-block" id="create" value="Start New Game!">
           </div>
 
           <!-- Collapsible Account Options -->
           <div class="options">
             <input type="button" class="btn btn-block" value="Account Options" data-toggle="collapse" data-target="#account-options">
             <div id="account-options" class="collapse">
+
               <!-- Sign out -->
-              <form id="sign-out">
+              <form class="form-group" id="sign-out">
                 <input type="submit" class="btn btn-block" value="Sign Out!">
               </form>
+
               <!-- Change password form -->
-              <form id="change-password">
-                <div class="form-group">
-                  <!-- <label for="passwords[old]" class="label">Old Password</label> -->
-                  <input name="passwords[old]" class="form-control" type="password" placeholder="Enter old password" required>
-                  <!-- <label for="passwords[new]" class="label">New Password</label> -->
-                  <input name="passwords[new]" class="form-control" type="password" placeholder="Enter new password" required>
-                  <input type="submit" class="btn btn-block" value="Change Password!">
-                </div>
+              <form class="form-group" id="change-password">
+                <input name="passwords[old]" class="form-control" type="password" placeholder="Enter old password" required>
+                <input name="passwords[new]" class="form-control" type="password" placeholder="Enter new password" required>
+                <input type="submit" class="btn btn-block" value="Change Password!">
               </form>
             </div>
-          </div>
+          </div> <!-- Collapsible Account Options -->
         </div> <!-- Logged in sidebar -->
 
-        <!-- Welcome page with sign-in and sign-up info -->
-        <div id="logged-out">
+        <div class="" id="logged-out">
 
           <!-- Sign-in form -->
           <form class="form-group" id="sign-in">
-            <h2>Sign In</h2>
-            <!-- <label for="credentials[email]" class="label">Email Address</label> -->
+            <h2>Sign In to Play!</h2>
             <input name="credentials[email]" class="form-control col-auto" type="email" placeholder="Enter email" required>
-            <!-- <label for="credentials[password]" class="label">Password</label> -->
             <input name="credentials[password]" class="form-control col-auto" type="password" placeholder="Enter password" required>
             <input type="submit" class="btn btn-block" value="Sign In!">
-            <!-- <input type="checkbox" value="Remember me"> -->
-          </form>
-
+          </form> <!-- Sign-in form -->
+          <hr>
           <!-- Sign-Up form -->
           <form class="form-group" id="sign-up">
-            <h2>Sign Up</h2>
-            <!-- <label for="credentials[email]" class="label">Email Address</label> -->
+            <h3>Don't Have an account?</h3>
+            <h2>Sign Up Today!</h2>
             <input name="credentials[email]" class="form-control" type="email" placeholder="Email address" required>
-            <!-- <label for="credentials[password]" class="label">Password</label> -->
             <input name="credentials[password]" class="form-control" type="password" placeholder="Enter password" required>
-            <!-- <label for="credentials[password_confirmation]" class="label">Confirm Password</label> -->
             <input name="credentials[password_confirmation]" class="form-control" type="password" placeholder="Confirm password" required>
             <input type="submit" class="btn btn-block" value="Sign Up!">
-          </form>
+          </form> <!-- Sign-Up form -->
+
         </div> <!-- Logged out sidebar -->
-      </div>
+
+      </div> <!-- Game Sidebar -->
+
     </section>
   </main>
+  <!-- TEST BUTTON -->
+  <!-- <input name="test" type="button" class="btn" id="test" value="Console.lumberjack Test"> -->
+  <!-- TEST BUTTON -->
 </body>
 
 </html>

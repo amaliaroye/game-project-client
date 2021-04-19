@@ -18,8 +18,8 @@ const onSignUpError = function () {
 const onSignInSuccess = function (response) {
   store.user = response.user // store user data from API in 'store.js'
   $('#message').text('Signed in successfully. Welcome!')
-  $('#logged-in').toggleClass('hidden') // show logged-in sidebar
-  $('#logged-out').toggleClass('hidden') // hide sign-in/sign-up forms
+  $('#logged-in').toggleClass('d-none') // show logged-in sidebar
+  $('#logged-out').toggleClass('d-none') // hide sign-in/sign-up forms
   $('form').trigger('reset') // empty form
 }
 const onSignInError = function () {
@@ -28,17 +28,25 @@ const onSignInError = function () {
 
 const onChangePasswordSuccess = function (response) {
   $('#message').text('Changed password successfully!')
-  $('#change-password').trigger('reset') // empty form
+  $('form').trigger('reset') // empty form
 }
 const onChangePasswordError = function () {
   $('#message').text('Whoops! Something went wrong. Your password was not changed.')
+  $('form').trigger('reset') // empty form
 }
 
 const onSignOutSuccess = function () {
   $('#message').text('Signed out! Play again soon!')
-  $('#logged-in').toggleClass('hidden')
-  $('#logged-out').toggleClass('hidden')
+  $('.cell').empty()
+  $('#game-result').empty()
+  $('#logged-in').toggleClass('d-none')
+  $('#logged-out').toggleClass('d-none')
+
+  // Remove stored game data in store.js
   store.user = null // remove user data from 'store.js'
+  store.gameScores = { tiedGames: 0, gamesPlayed: 0 }
+  store.playerX.wins = 0
+  store.playerO.wins = 0
 }
 const onSignOutError = function () {
   $('#message').text('Sign out failed. Please try again.')

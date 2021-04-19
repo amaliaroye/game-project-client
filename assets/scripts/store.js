@@ -9,13 +9,20 @@ const store = {
 
 const playerX = {
   name: 'x', // name to insert into cells
-  icon: '<img src="public/x.svg" alt="x">',
-  moves: []
+  icon: '<img src="public/sushi-01.svg" alt="x">',
+  moves: [],
+  wins: 0
 }
 const playerO = {
   name: 'o', // name to insert into game.cells
-  icon: '<img src="public/o.svg" alt="o">',
-  moves: []
+  icon: '<img src="public/sushi-02.svg" alt="o">',
+  moves: [],
+  wins: 0
+}
+
+const gameScores = {
+  tiedGames: 0,
+  gamesPlayed: 0
 }
 
 const winningCombos = [
@@ -28,5 +35,6 @@ module.exports = {
   store,
   playerX,
   playerO,
+  gameScores,
   winningCombos
 }
