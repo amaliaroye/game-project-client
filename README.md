@@ -12,26 +12,13 @@ This application allows the user to do register an account with an email and pas
 
 [Deployed Client](https://amaliaroye.github.io/game-project-client/)
 
-## Screenshots
-Embedded Screenshots
-
 ## Setup Steps
-1. Fork and clone this repository.
+1. Fork and clone!
 2. Run npm install command to install all dependencies
 3. Run the grunt serve command to spin up the server.
 
-## Technologies Used
-HTML/CSS
-Bootstrap
-Javascript
-jQuery
-
-## Unsolved Problems
-Still need to ....
-Would like to eventually ....
 
 ## Planning
-### Planning Story
 
 ### User Stories
 - As a new user, I want to be able to create a new account so I can play a game
@@ -42,6 +29,5 @@ Would like to eventually ....
 - I want to be able to start a new game and click on empty squares until either player wins, or if there are no available spaces on the board
 - I want to be able to see who won or if there was a tie after the game is over with the option of playing again or exiting and signing out
 ### Wireframe Sketches
-[ops]()
 ![Wireframe Sketch](https://i.imgur.com/WDWigZc.jpg)
 ![Chicken Scratch](https://i.imgur.com/xxICQKP.jpg)
