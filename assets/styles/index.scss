@@ -1,0 +1,61 @@
+$orange: #fec367;
+$red: #d6685c;
+$teal: #2e8e82;
+$yellow: #fff9b1;
+$salmon: #f37f46;
+$green: #93ca86;
+$white: #feffef;
+$gray: #f7eedf;
+$brown: #60565e;
+$black: #443740;
+
+@import '~bootstrap/scss/bootstrap';
+
+// $enable-responsive-font-sizes: true
+
+body {
+  background-color: $orange;
+  color: $white;
+}
+
+div {
+  border-radius: 4px;
+}
+
+img {
+  display: inline-block;
+}
+
+.sidebar {
+  background-color: $red;
+  max-height: 100%;
+  padding: -10px;
+}
+
+.game-area {
+  background-color: $black;
+}
+
+.btn {
+  background-color: $teal;
+  color: $white;
+}
+
+.cell {
+  background-color: $brown;
+  // padding-bottom: 30%;
+  // width: 30%;
+  border: -10px;
+  border-color: $black;
+  height: 150px;
+
+  &.clicked {
+    background-color: $black;
+  }
+}
+
+
+.scoreboard {
+  background-color: $red;
+  padding: -10px;
+}
